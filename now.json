@@ -1,0 +1,7 @@
+{
+  "build": {
+    "env": {
+      "PHISHIN_API_KEY": "@phishin_api_key"
+    }
+  }
+}

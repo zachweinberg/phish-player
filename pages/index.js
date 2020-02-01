@@ -9,9 +9,9 @@ const Index = () => {
     e.preventDefault();
 
     axios
-      .get(`http://localhost:34567/search?s=${term}`)
+      .get(`/api/search?s=${term}`)
       .then(({ data }) => {
-        console.log(data);
+        setResults(data.data.data.songs);
       })
       .catch(e => alert(e));
   };
@@ -30,7 +30,7 @@ const Index = () => {
       </form>
       <div>
         {results.map(result => (
-          <div className="result-box">Hi</div>
+          <div className="result-box">{result.title}</div>
         ))}
       </div>
     </div>

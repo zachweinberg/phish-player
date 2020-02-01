@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "next",
-    "next-build": "next build",
-    "start": "next start",
-    "build": "cd functions && npm i"
+    "build": "next build",
+    "start": "next start"
   },
   "author": "Zach Weinberg",
   "license": "ISC",
