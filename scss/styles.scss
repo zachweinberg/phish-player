@@ -143,3 +143,20 @@ $base-font-size: 1.5rem;
     }
   }
 }
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #ccc;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 15px;
+
+  span {
+    margin-right: 10px;
+  }
+}

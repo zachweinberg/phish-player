@@ -3,6 +3,7 @@ import axios from "axios";
 
 import SearchInput from "../components/SearchInput";
 import SearchResults from "../components/SearchResults";
+import BracketsIcon from "../components/icons/Brackets";
 
 const Index = () => {
   const [results, setResults] = useState([]);
@@ -23,6 +24,14 @@ const Index = () => {
     <div className="home">
       <SearchInput onSubmit={onSearch} />
       <SearchResults results={results} />
+      <a
+        className="footer-link"
+        href="https://github.com/zachweinberg/phish-player.git"
+        target="_blank"
+      >
+        <span>View code</span>
+        <BracketsIcon width="17px" height="17px" fill="#ccc" />
+      </a>
     </div>
   );
 };
