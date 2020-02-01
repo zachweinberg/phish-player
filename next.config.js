@@ -1,4 +1,8 @@
 const withSCSS = require("@zeit/next-sass");
-module.exports = withSCSS({
-  /* config options here */
-});
+const withCSS = require("@zeit/next-css");
+
+module.exports = withCSS(
+  withSCSS({
+    /* config options here */
+  })
+);

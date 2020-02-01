@@ -1,3 +1,5 @@
+import Loader from "react-loader-spinner";
+
 import PlayIcon from "./icons/Play";
 
 const CategoryList = () => {
@@ -33,11 +35,17 @@ const Results = ({ results }) => {
   );
 };
 
-const SearchResults = ({ results }) => {
+const SearchResults = ({ results, loading }) => {
   return (
     <div className="search-results">
       <CategoryList />
-      <Results results={results} />
+      {loading ? (
+        <div style={{ textAlign: "center", marginTop: "2rem" }}>
+          <Loader type="TailSpin" color="#577dde" height={45} width={45} />
+        </div>
+      ) : (
+        <Results results={results} />
+      )}
     </div>
   );
 };
