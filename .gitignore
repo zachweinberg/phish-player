@@ -1,0 +1,6 @@
+.env
+node_Modules
+build
+out
+.next
+.netlify

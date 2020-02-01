@@ -1,0 +1,23 @@
+{
+  "name": "phish-player",
+  "version": "1.0.0",
+  "description": "Play Phish tracks from Phish.in API",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "next-build": "next build",
+    "start": "next start",
+    "build": "cd functions && npm i"
+  },
+  "author": "Zach Weinberg",
+  "license": "ISC",
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "next": "^9.2.1",
+    "node-sass": "^4.13.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
