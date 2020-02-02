@@ -18,7 +18,9 @@ const Index = () => {
       axios
         .get(`/api/search?s=${term}`)
         .then(({ data }) => {
-          setResults(data.data.data.songs);
+          console.log(data);
+          return;
+          setResults(data.data.data);
         })
         .catch(e => alert(e))
         .finally(() => setLoading(false));
@@ -28,6 +30,9 @@ const Index = () => {
   };
   return (
     <div className="home">
+      <p className="caption">
+        Don't know any Phish songs? Try "Free" - it's a great starter song!
+      </p>
       <SearchInput onSubmit={onSearch} />
       <SearchResults results={results} loading={loading} />
       <a

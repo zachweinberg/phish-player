@@ -2,49 +2,49 @@ import Loader from "react-loader-spinner";
 
 import PlayIcon from "./icons/Play";
 
-const CategoryList = () => {
+const CategoryList = ({ numSongs, numVenues, numTours }) => {
   return (
     <ul className="categories">
       <li className="selected">
-        <a>All</a>
+        <a>Songs ({numSongs})</a>
       </li>
       <li>
-        <a>Songs</a>
+        <a>Venues ({numVenues})</a>
       </li>
       <li>
-        <a>Venues</a>
+        <a>Tours ({numTours})</a>
       </li>
-      <li>
-        <a>Tours</a>
-      </li>
-    </ul>
-  );
-};
-
-const Results = ({ results }) => {
-  return (
-    <ul className="results">
-      {results.map(result => (
-        <li key={result.id}>
-          <h2>{result.title}</h2>
-          <span>Track Count: {result.tracks_count}</span>
-          <PlayIcon />
-        </li>
-      ))}
     </ul>
   );
 };
 
 const SearchResults = ({ results, loading }) => {
+  const { songs = [], venues = [], tours = [] } = results;
+
   return (
     <div className="search-results">
-      <CategoryList />
+      <CategoryList
+        numSongs={songs.length}
+        numVenues={venues.length}
+        numTours={tours.length}
+      />
       {loading ? (
         <div style={{ textAlign: "center", marginTop: "2rem" }}>
           <Loader type="TailSpin" color="#577dde" height={45} width={45} />
         </div>
       ) : (
-        <Results results={results} />
+        <ul className="results">
+          {songs.map(result => (
+            <li key={result.id}>
+              <div>
+                <h2>{result.title}</h2>
+              </div>
+              <div>
+                <span>Track Count: {result.tracks_count}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );
