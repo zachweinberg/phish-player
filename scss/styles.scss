@@ -13,6 +13,7 @@ ul {
 body {
   padding: 1.5rem;
   font-family: "Lato", sans-serif;
+  background-color: rgb(117, 150, 250);
 }
 
 // mixins
@@ -47,7 +48,7 @@ $base-font-size: 1.5rem;
   @include flex-row;
   background-color: #fff;
   border-radius: 15px;
-  border: 2px solid rgb(50, 50, 50);
+  border: none;
   box-shadow: $shadow;
   justify-content: space-between;
   font-size: $base-font-size;
@@ -89,7 +90,7 @@ $base-font-size: 1.5rem;
 .search-results {
   background-color: #fff;
   border-radius: 15px;
-  border: 2px solid rgb(50, 50, 50);
+  border: none;
   padding: 2rem 2.2rem;
   box-shadow: $shadow;
   font-size: $base-font-size;
