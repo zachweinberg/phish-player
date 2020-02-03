@@ -13,7 +13,7 @@ ul {
 body {
   padding: 1.5rem;
   font-family: "Lato", sans-serif;
-  background-color: rgb(117, 150, 250);
+  background-color: rgb(243, 245, 250);
 }
 
 // mixins
@@ -35,6 +35,11 @@ $base-font-size: 1.5rem;
   color: $text-primary;
   text-align: center;
   margin-bottom: 2rem;
+}
+
+.color-fade {
+  transition: ease-in color 0.13s;
+  transition: ease-in fill 0.13s;
 }
 
 // home page
@@ -121,7 +126,6 @@ $base-font-size: 1.5rem;
       &:hover {
         color: $blue-primary;
         cursor: pointer;
-        transition: ease-in color 0.13s;
       }
     }
   }

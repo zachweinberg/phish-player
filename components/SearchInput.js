@@ -12,7 +12,7 @@ const SearchInput = ({ onSubmit }) => {
         value={term}
         onChange={e => setTerm(e.target.value)}
       />
-      <SearchIcon onClick={e => onSubmit(e, term)} />
+      <SearchIcon onClick={e => onSubmit(e, term)} className="color-fade" />
     </form>
   );
 };

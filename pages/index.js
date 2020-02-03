@@ -18,9 +18,8 @@ const Index = () => {
       axios
         .get(`/api/search?s=${term}`)
         .then(({ data }) => {
-          console.log(data);
-          return;
-          setResults(data.data.data);
+          const results = data.data.data;
+          setResults(results);
         })
         .catch(e => alert(e))
         .finally(() => setLoading(false));

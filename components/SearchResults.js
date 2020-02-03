@@ -1,17 +1,32 @@
+import { useState } from "react";
 import Loader from "react-loader-spinner";
+import SongNameList from "./SongNameList";
 
-import PlayIcon from "./icons/Play";
-
-const CategoryList = ({ numSongs, numVenues, numTours }) => {
+const CategoryList = ({
+  numSongs,
+  numVenues,
+  numTours,
+  selectedCat,
+  setSelectedCat
+}) => {
   return (
     <ul className="categories">
-      <li className="selected">
+      <li
+        className={`color-fade ${selectedCat === "Songs" ? "selected" : ""}`}
+        onClick={() => setSelectedCat("Songs")}
+      >
         <a>Songs ({numSongs})</a>
       </li>
-      <li>
+      <li
+        className={`color-fade ${selectedCat === "Venues" ? "selected" : ""}`}
+        onClick={() => setSelectedCat("Venues")}
+      >
         <a>Venues ({numVenues})</a>
       </li>
-      <li>
+      <li
+        className={`color-fade ${selectedCat === "Tours" ? "selected" : ""}`}
+        onClick={() => setSelectedCat("Tours")}
+      >
         <a>Tours ({numTours})</a>
       </li>
     </ul>
@@ -19,6 +34,7 @@ const CategoryList = ({ numSongs, numVenues, numTours }) => {
 };
 
 const SearchResults = ({ results, loading }) => {
+  const [selectedCat, setSelectedCat] = useState("Songs");
   const { songs = [], venues = [], tours = [] } = results;
 
   return (
@@ -27,24 +43,15 @@ const SearchResults = ({ results, loading }) => {
         numSongs={songs.length}
         numVenues={venues.length}
         numTours={tours.length}
+        selectedCat={selectedCat}
+        setSelectedCat={setSelectedCat}
       />
       {loading ? (
         <div style={{ textAlign: "center", marginTop: "2rem" }}>
           <Loader type="TailSpin" color="#577dde" height={45} width={45} />
         </div>
       ) : (
-        <ul className="results">
-          {songs.map(result => (
-            <li key={result.id}>
-              <div>
-                <h2>{result.title}</h2>
-              </div>
-              <div>
-                <span>Track Count: {result.tracks_count}</span>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <SongNameList songs={songs} />
       )}
     </div>
   );
