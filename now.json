@@ -1,6 +1,5 @@
 {
-  "name": "phish-player",
-  "env": {
+  "env.build": {
     "PHISHIN_API_KEY": "@phishin_api_key"
   }
 }

@@ -1,39 +1,20 @@
 import { useState } from "react";
 import axios from "axios";
-
 import SearchInput from "../components/SearchInput";
 import SearchResults from "../components/SearchResults";
 import BracketsIcon from "../components/icons/Brackets";
+import { usePhish, useDispatchPhish } from "../context";
 
 const Index = () => {
-  const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const state = usePhish();
 
-  const onSearch = (e, term) => {
-    e.preventDefault();
-
-    if (term !== "" && term.length >= 3) {
-      setLoading(true);
-
-      axios
-        .get(`/api/search?s=${term}`)
-        .then(({ data }) => {
-          const results = data.data.data;
-          setResults(results);
-        })
-        .catch(e => alert(e))
-        .finally(() => setLoading(false));
-    } else {
-      alert("Search term must be at least 3 characters");
-    }
-  };
   return (
     <div className="home">
       <p className="caption">
         Don't know any Phish songs? Try "Free" - it's a great starter song!
       </p>
-      <SearchInput onSubmit={onSearch} />
-      <SearchResults results={results} loading={loading} />
+      <SearchInput />
+      <SearchResults />
       <a
         className="footer-link"
         href="https://github.com/zachweinberg/phish-player.git"

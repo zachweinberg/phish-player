@@ -34,7 +34,6 @@ $base-font-size: 1.5rem;
   font-size: 1.2rem;
   color: $text-primary;
   text-align: center;
-  margin-bottom: 2rem;
 }
 
 .color-fade {
@@ -57,7 +56,7 @@ $base-font-size: 1.5rem;
   box-shadow: $shadow;
   justify-content: space-between;
   font-size: $base-font-size;
-  margin-bottom: 2rem;
+  margin: 1.5rem 0;
 
   input {
     border: none;
@@ -130,12 +129,15 @@ $base-font-size: 1.5rem;
     }
   }
 
-  // results grid
-  .results {
+  .item-list {
+    .caption {
+      margin: 2.2rem 1rem 1.4rem 1rem;
+    }
+
     li {
       @include flex-row;
       justify-content: space-between;
-      padding: 2rem 0 1rem 0;
+      padding: 1.4rem 0 1rem 0;
       border-bottom: 1px solid $text-primary;
       color: $text-secondary;
 
@@ -146,6 +148,13 @@ $base-font-size: 1.5rem;
       span {
         font-size: 0.7em;
         color: $text-tertiary;
+      }
+
+      a {
+        cursor: pointer;
+        &:hover {
+          color: $blue-primary;
+        }
       }
 
       svg {
