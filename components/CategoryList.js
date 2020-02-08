@@ -7,7 +7,7 @@ const CategoryList = ({ state, dispatch }) => {
         }`}
         onClick={() => dispatch({ type: "SET_CATEGORY", payload: "Songs" })}
       >
-        <a>Songs ({state.searchResults.songs.length})</a>
+        <a>Songs</a>
       </li>
       <li
         className={`color-fade ${
@@ -15,7 +15,7 @@ const CategoryList = ({ state, dispatch }) => {
         }`}
         onClick={() => dispatch({ type: "SET_CATEGORY", payload: "Venues" })}
       >
-        <a>Venues ({state.searchResults.venues.length})</a>
+        <a>Venues</a>
       </li>
       <li
         className={`color-fade ${
@@ -23,7 +23,7 @@ const CategoryList = ({ state, dispatch }) => {
         }`}
         onClick={() => dispatch({ type: "SET_CATEGORY", payload: "Tours" })}
       >
-        <a>Tours ({state.searchResults.tours.length})</a>
+        <a>Tours</a>
       </li>
     </ul>
   );

@@ -1,5 +1,7 @@
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { usePhish, useDispatchPhish } from "../context";
+import PlayIcon from "../components/icons/Play";
 
 const SongsList = () => {
   const state = usePhish();
@@ -12,12 +14,19 @@ const SongsList = () => {
     const { tracks } = data.data.data;
     dispatch({
       type: "SET_SELECTED_SONGS",
-      payload: tracks
+      payload: tracks.reverse()
     });
+    dispatch({ type: "SET_MODE", payload: "selected" });
     dispatch({ type: "SET_SEARCHING", payload: false });
   };
-  return (
-    state.searchResults.songs.length > 0 && (
+
+  const onPlay = mp3Url => {
+    let audio = new Audio(mp3Url);
+    audio.play();
+  };
+
+  if (state.mode === "search" && state.searchResults.songs.length > 0) {
+    return (
       <div className="item-list">
         <div className="caption">Click a song to listen by date</div>
         <ul>
@@ -33,8 +42,35 @@ const SongsList = () => {
           ))}
         </ul>
       </div>
-    )
-  );
+    );
+  }
+
+  if (state.mode === "selected" && state.selected.songs.length > 0) {
+    return (
+      <div className="item-list" style={{ marginTop: "1rem" }}>
+        <ul>
+          {state.selected.songs.map(song => (
+            <li key={song.id}>
+              <div>
+                <a onClick={() => setSelectedSong(song.id)}>{song.title}</a>
+              </div>
+              <div>
+                <span>{song.show_date}</span>
+              </div>
+              <div>
+                <PlayIcon
+                  className="color-fade"
+                  onClick={() => onPlay(song.mp3)}
+                />
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  return null;
 };
 
 export default SongsList;

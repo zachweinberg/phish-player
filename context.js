@@ -11,7 +11,8 @@ const INITIAL_STATE = {
     venues: [],
     tours: []
   },
-  selectedCategory: "Songs",
+  mode: "search",
+  selectedCategory: "",
   selected: {
     songs: [],
     venues: [],
@@ -45,6 +46,11 @@ const reducer = (state, { type, payload }) => {
       return produce(state, draft => {
         draft.selected.songs = payload;
       });
+    case "SET_MODE":
+      return {
+        ...state,
+        mode: payload
+      };
     default:
       throw new Error(`Unknown action: ${type}`);
   }

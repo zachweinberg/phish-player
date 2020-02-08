@@ -23,6 +23,8 @@ const SearchInput = () => {
           tours: results.tours
         }
       });
+      dispatch({ type: "SET_MODE", payload: "search" });
+      dispatch({ type: "SET_CATEGORY", payload: "Songs" });
       dispatch({ type: "SET_SEARCHING", payload: false });
     } else {
       alert("Search term must be at least 3 characters");
