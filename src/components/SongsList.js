@@ -1,26 +1,26 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { usePhish, useDispatchPhish } from "../context";
-import PlayIcon from "../components/icons/Play";
+import PlayIcon from "./icons/Play";
 
 const SongsList = () => {
   const state = usePhish();
   const dispatch = useDispatchPhish();
 
-  const setSelectedSong = async id => {
+  const setSelectedSong = async (id) => {
     dispatch({ type: "SET_SEARCHING", payload: true });
 
     const { data } = await axios.get(`/api/songs/${id}`);
     const { tracks } = data.data.data;
     dispatch({
       type: "SET_SELECTED_SONGS",
-      payload: tracks.reverse()
+      payload: tracks.reverse(),
     });
     dispatch({ type: "SET_MODE", payload: "selected" });
     dispatch({ type: "SET_SEARCHING", payload: false });
   };
 
-  const onPlay = mp3Url => {
+  const onPlay = (mp3Url) => {
     let audio = new Audio(mp3Url);
     audio.play();
   };
@@ -30,7 +30,7 @@ const SongsList = () => {
       <div className="item-list">
         <div className="caption">Click a song to listen by date</div>
         <ul>
-          {state.searchResults.songs.map(song => (
+          {state.searchResults.songs.map((song) => (
             <li key={song.id}>
               <div>
                 <a onClick={() => setSelectedSong(song.id)}>{song.title}</a>
@@ -49,7 +49,7 @@ const SongsList = () => {
     return (
       <div className="item-list" style={{ marginTop: "1rem" }}>
         <ul>
-          {state.selected.songs.map(song => (
+          {state.selected.songs.map((song) => (
             <li key={song.id}>
               <div>
                 <a onClick={() => setSelectedSong(song.id)}>{song.title}</a>
