@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
 import { usePhish, useDispatchPhish } from "../context";
 import PlayIcon from "./icons/Play";

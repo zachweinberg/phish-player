@@ -1,13 +1,9 @@
-import { useState } from "react";
-import axios from "axios";
 import SearchInput from "../components/SearchInput";
 import SearchResults from "../components/SearchResults";
 import BracketsIcon from "../components/icons/Brackets";
 import { usePhish, useDispatchPhish } from "../context";
 
 const Index = () => {
-  const state = usePhish();
-
   return (
     <div className="home">
       <p className="caption">
