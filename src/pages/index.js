@@ -11,13 +11,17 @@ const Index = () => {
   return (
     <div className="home">
       <p className="caption">
-        Don't know any Phish songs? Try "Free" - it's a great starter song!
+        Phish is a band that formed in the late 80's that is known for their
+        enormous catalog of songs and live shows that make use of extended
+        improvisation. Most shows have been recorded over the past 30 years and
+        can be heard here!
       </p>
+      <p className="caption">Don't know any Phish songs? Try "Free"</p>
       <SearchInput />
       <SearchResults />
       <a
         className="footer-link"
-        href="https://github.com/zachweinberg/phish-player.git"
+        href="https://github.com/zachweinberg/phish-player"
         target="_blank"
       >
         <span>View code</span>

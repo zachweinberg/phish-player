@@ -23,7 +23,7 @@ body {
 }
 
 // vars
-$text-primary: #bbbbbb;
+$text-primary: #b6b6b6;
 $text-secondary: #636363;
 $text-tertiary: #727272;
 $blue-primary: #577dde;
@@ -31,9 +31,10 @@ $shadow: 0 15px 50px rgba(41, 33, 136, 0.13);
 $base-font-size: 1.5rem;
 
 .caption {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: $text-primary;
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 .color-fade {
