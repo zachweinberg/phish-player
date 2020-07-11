@@ -1,7 +1,7 @@
 {
   "name": "phish-player",
   "version": "1.0.0",
-  "description": "Play Phish tracks from Phish.in API",
+  "description": "Play Phish tracks from the Phish.in API",
   "main": "index.js",
   "scripts": {
     "dev": "next",
